@@ -31,9 +31,6 @@ pipeline {
             }
         }
 
-        
-    }
-
     post {
         always {
             // Limpa o workspace após a execução
