@@ -22,6 +22,13 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+
+        stage('Publish Test Results') {
+            steps {
+                // Publica os resultados dos testes no Jenkins
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
     }
 
     post {
