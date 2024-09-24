@@ -6,13 +6,14 @@ public class Main {
 		int resultInt;
 		double resultDouble;
 		double d,e;
-		Calculadora calculadora = new Calculadora();
-		a=4;
-		b=5;
-		d=25;
-		e=3.5;
-		resultInt = calculadora.soma(a,b);
+		Calculadora c = new Calculadora();
+		a=20;
+		b=47;
+		d=12;
+		e=33.9;
+		resultInt = c.soma(a,b);
 		System.out.println(resultInt);
-		resultDouble = calculadora.divisaoD(d , e);
-		System.out.println(resultDouble);	}
+		resultDouble = c.divisaoD(d , e);
+		System.out.println(resultDouble);
+	}
 }
