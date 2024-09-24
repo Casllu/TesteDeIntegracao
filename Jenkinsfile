@@ -1,10 +1,9 @@
 pipeline {
     agent any
     tools {
-        jdk 'JDK 17'
+        jdk 'JAVA17'
     }
     environment {
-        // Defina a versão do Maven configurada no Jenkins
         MAVEN_HOME = tool name: 'Maven 3.x', type: 'maven'
         PATH = "${MAVEN_HOME}\\bin;${env.PATH}" // Use o separador de caminho correto para o Windows
     }
@@ -17,17 +16,10 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build and Test') {
             steps {
                 // Compila o projeto e executa os testes
                 bat 'mvn clean install'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                // Executa os testes
-                bat 'mvn test'
             }
         }
 
@@ -41,10 +33,11 @@ pipeline {
 
     post {
         always {
+            // Publica os relatórios de teste
+            junit 'target/surefire-reports/*.xml' // Coleta os relatórios de teste
             // Limpa o workspace após a execução
             cleanWs()
         }
-
         failure {
             echo 'Pipeline failed.'
         }
