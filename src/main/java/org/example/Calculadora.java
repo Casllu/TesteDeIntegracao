@@ -17,8 +17,6 @@ public class Calculadora {
 	public double divisaoD(double a, double b){
 		return a/b;
 	}
-
-
 	public boolean ePar(int x) {
 		return x % 2 == 0;
 	}
