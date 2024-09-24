@@ -26,7 +26,7 @@ pipeline {
         stage('Publish Test Results') {
             steps {
                 // Publica os resultados dos testes no Jenkins
-                junit '**/target/surefire-reports/*.xml'
+                junit '**/target/failsafe-reports/*.xml'
             }
         }
     }
@@ -34,7 +34,7 @@ pipeline {
     post {
         always {
             // Publica os relatórios de teste
-            junit 'target/surefire-reports/*.xml' // Coleta os relatórios de teste
+            junit 'target/failsafe-reports/*.xml' // Coleta os relatórios de teste
             // Limpa o workspace após a execução
             cleanWs()
         }
