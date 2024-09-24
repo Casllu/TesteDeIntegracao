@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clona o repositório do Git
-                git 'https://github.com/IgorPSUnit/TesteJUnit.git'
+                git 'https://github.com/Casllu/TesteDeIntegracao'
             }
         }
 
