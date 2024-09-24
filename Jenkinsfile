@@ -31,12 +31,7 @@ pipeline {
             }
         }
 
-        stage('Publish Test Results') {
-            steps {
-                // Publica os resultados dos testes no Jenkins
-                junit '**/target/surefire-reports/*.xml'
-            }
-        }
+        
     }
 
     post {
@@ -44,6 +39,7 @@ pipeline {
             // Limpa o workspace após a execução
             cleanWs()
         }
+    }
 
         failure {
             echo 'Pipeline failed.'
