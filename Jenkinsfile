@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+        jdk 'JDK 17'
+    }
     environment {
         // Defina a versão do Maven configurada no Jenkins
         MAVEN_HOME = tool name: 'Maven 3.x', type: 'maven'
